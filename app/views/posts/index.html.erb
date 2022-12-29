@@ -1,0 +1,14 @@
+<div class="w-full">
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">Posts</h1>
+    <%= link_to 'New post', new_group_post_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+  </div>
+
+  <%= link_to 'Show Group', [@group]%>
+
+  <div id="posts" class="min-w-full">
+    <%= render(PostComponent.new(post: @posts)) %>
+    
+
+  </div>
+</div>

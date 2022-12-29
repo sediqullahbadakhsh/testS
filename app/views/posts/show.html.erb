@@ -1,0 +1,16 @@
+<div class="container mx-auto mt-10 px-5 mx-auto w-full">
+  <div class="flex flex-col w-4/5">
+      <div class="font-bold text-4xl mb-4 "><%= @post.title%></div>
+      <div><%= @post.content%></div>
+    </div>
+
+    <div>
+    <hr/>
+      <div class="font-bold text-2xl mb-4"> Comments </div>
+      <div class="">
+        <%= render @post.comments.where(parent_id:nil).includes(:user).order(id: :desc).limit(10) %>
+      </div>
+      <%= render partial: 'comments/form', locals: {post: @post, parent: nil} %>
+
+  </div>
+</div>
